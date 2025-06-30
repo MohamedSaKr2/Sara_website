@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saramerdas</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Almarai&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" type="image/png" href="imge/logo3.png" />
+
+    <style>
+      .whatsapp-float {
+        position: fixed;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        background-color: #a57d6e;
+        color: #fff;
+        padding: 10px;
+        border-radius: 50%;
+        font-size: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .whatsapp-float:hover {
+        transform: translateY(-50%) scale(1.1);
+      }
+
+      @media (max-width: 768px) {
+        .whatsapp-float {
+          top: 100px;
+          transform: none;
+        }
+      }
+      .image-container {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .image-container img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .buttons-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        gap: 10px;
+        transition: opacity 0.3s ease;
+      }
+
+      .image-container:hover .buttons-overlay {
+        opacity: 1;
+      }
+
+      .buttons-overlay button {
+        padding: 10px 20px;
+        background-color: #9c6b5b;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+      }
+
+      .buttons-overlay button:hover {
+        background-color: #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- start navbar -->
+    <nav class="navbar">
+      <div class="logo">
+        <img src="imge/logo 2.png" alt="شعار الموقع" />
+      </div>
+
+      <div class="nav-center">
+        <ul class="nav-links">
+          <li>
+            <a href="index.html"><i class="fas fa-home"></i> الرئيسية</a>
+          </li>
+          <li>
+            <a href="html/product.html"
+              ><i class="fa-solid fa-chevron-down">&nbsp;</i
+              ><i class="fas fa-shopping-bag"></i> المنتجات</a
+            >
+          </li>
+          <li>
+            <a href="html/ofer.html"
+              ><i class="fa-solid fa-chevron-down"></i>&nbsp;<i
+                class="fas fa-info-circle"
+              ></i>
+              العروض</a
+            >
+          </li>
+          <li>
+            <a href="/html/call.html"><i class="fas fa-phone"></i> اتصل بنا</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-right">
+        <div class="icons">
+          <span>
+            <a
+              href="/html/login.html"
+              style="color: black; text-decoration: none"
+              >تسجيل الدخول</a
+            >
+            &nbsp;<i class="fa-solid fa-chevron-down"></i
+          ></span>
+          &nbsp;&nbsp;&nbsp;
+          <i class="fa-regular fa-user" style="margin-right: 5px"></i>
+          <i class="fas fa-search"></i>
+          <a href="/html/fav.html"><i class="fa-regular fa-heart"></i></a>
+          <a href="html/cart.html"><i class="fas fa-shopping-cart"></i></a>
+        </div>
+      </div>
+
+      <!-- هامبورجر مينو -->
+      <div class="hamburger">
+        <i class="fas fa-bars"></i>
+        <i class="fas fa-times"></i>
+      </div>
+
+      <!-- السايدبار الجديد -->
+      <div class="mobile-sidebar">
+        <div class="sidebar-header">
+          <span class="close-sidebar"><i class="fas fa-times"></i></span>
+          <div class="sidebar-search">
+            <input type="text" placeholder="إبحث هنا..." />
+            <i class="fas fa-search"></i>
+          </div>
+        </div>
+
+        <ul class="sidebar-links">
+          <li>
+            <a href="index.html"><i class="fas fa-home"></i> الرئيسية</a>
+          </li>
+          <li>
+            <a href="html/product.html"
+              ><i class="fas fa-shopping-bag"></i> المنتجات</a
+            >
+          </li>
+          <li>
+            <a href="html/ofer.html"
+              ><i class="fas fa-info-circle"></i> العروض</a
+            >
+          </li>
+          <li>
+            <a href="html/call.html"><i class="fas fa-phone"></i> اتصل بنا</a>
+          </li>
+          <li>
+            <a href="html/store.html"><i class="fas fa-store"></i>المتجر</a>
+          </li>
+          <li>
+            <a href="html/fav.html"
+              ><i class="fa-regular fa-heart"></i>المفضلة</a
+            >
+          </li>
+          <li>
+            <a href="html/cart.html"
+              ><i class="fas fa-shopping-cart"></i> السلة</a
+            >
+          </li>
+          <li>
+            <a href="html/login.html"
+              ><i class="fa-regular fa-user"></i> تسجيل الدخول</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- End navbar -->
+    <!-- ايقونة الواتس -->
+    <a
+      href="https://wa.me/201229863101"
+      class="whatsapp-float"
+      target="_blank"
+      title="تواصل معنا على واتساب"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- طبقة التعتيم -->
+    <div class="overlay"></div>
+    <!-- start header -->
+    <header>
+      <div class="hero-slider">
+        <div class="slide active">
+          <img src="imge/header.png" class="slide-img-blur" alt="blur" />
+
+          <div class="slide-content">
+            <h2>
+              اكتشفي أناقتك مع Saramerdas – حيث يلتقي التصميم الفاخر بالأنوثة
+              العصرية!
+            </h2>
+            <p>
+              تسوّقي أحدث صيحات الموضة خصيصاً للمرأة العصرية في الكويت، كولكشن
+              مميز يجمع بين الجمال والجودة.
+            </p>
+            <br />
+            <button class="shop-btn">
+              تسوقي الآن &nbsp;<i class="fa-solid fa-chevron-left"></i>
+            </button>
+          </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="slide">
+          <img src="imge/header.png" class="slide-img-blur" alt="blur" />
+          <div class="slide-content">
+            <h2>تألقي بإطلالة ملكية مع تصاميمنا الخاصة والمميزة</h2>
+            <p>عبايات فاخرة بأنامل كويتية تجمع بين الرقي واللمسة العصرية.</p>
+            <br />
+            <button class="shop-btn">
+              تسوقي الآن <i class="fa-solid fa-chevron-left"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide">
+          <img src="imge/header.png" class="slide-img-blur" alt="blur" />
+          <div class="slide-content">
+            <h2>اختاري إطلالتك المفضلة من تشكيلتنا الجديدة</h2>
+            <p>راحة، جودة، وأناقة لا مثيل لها — كلها في مكان واحد.</p>
+            <br />
+            <button class="shop-btn">
+              تسوقي الآن <i class="fa-solid fa-chevron-left"></i>
+            </button>
+          </div>
+        </div>
+        <div class="slider-arrows">
+          <i class="fa-solid fa-chevron-right" id="next"></i>
+          <i class="fa-solid fa-chevron-left" id="prev"></i>
+        </div>
+
+        <div class="slider-dots" id="dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- end header -->
+    <!-- start section -->
+    <section class="grid-section">
+      <div class="grid-box" style="background-color: #b43939">
+        <img src="imge/div4.png" style="width: 70px" />
+        <h6>الفساتين والبدلات</h6>
+      </div>
+      <div class="grid-box" style="background-color: #1f243b">
+        <img src="imge/div3.png" style="width: 70px" />
+        <!-- &nbsp;&nbsp;&nbsp;&nbsp; -->
+        <h6 style="margin-right: 10px">بليزرات</h6>
+      </div>
+      <div class="grid-box" style="background-color: #9f8877">
+        <img src="imge/div2.png" style="width: 110px" />
+        <h6 style="font-size: 15px; margin-left: 10px">مجموعة خريف 2024</h6>
+      </div>
+      <div class="grid-box" style="background-color: #7c658e">
+        <img src="imge/div1.png" style="width: 50px" />
+        <h6>مجموعة صيف 2024</h6>
+      </div>
+      <div class="grid-box" style="background-color: #2d1c3b">
+        <img src="imge/div8.png" alt="" />
+        <h6>جمبسوت</h6>
+      </div>
+      <div class="grid-box" style="background-color: #639fd3">
+        <img src="imge/div7.png" style="width: 90px" />
+        <h6>دراعة</h6>
+      </div>
+      <div class="grid-box" style="background-color: #4b4b4b">
+        <img src="imge/div6.png" alt="" />
+        <h6 style="margin-left: 19px">عبايات</h6>
+      </div>
+      <div class="grid-box" style="background-color: #296652">
+        <img src="imge/div5.png" style="width: 70px" />
+        <h6 style="margin-left: 10px">يرهش</h6>
+      </div>
+    </section>
+    <br /><br />
+
+    <!-- end section -->
+    <div class="more">
+      <button class="btn">المزيد</button>
+    </div>
+    <br /><br /><br /><br />
+    <!-- start section2 -->
+
+    <div class="product-section">
+      <h2>منتجات مميزة</h2>
+      <p>
+        تشكيلة مختارة بعناية من أفضل منتجاتنا، تجمع بين الجودة، الأناقة،
+        والتصاميم المميزة
+      </p>
+      <br /><br />
+
+      <div class="product-grid">
+        <!-- ======================== -->
+        <div class="product-card">
+          <div class="image-container">
+            <a href="details.html">
+              <img src="imge/image.png" alt="منتج" />
+            </a>
+            <div class="buttons-overlay">
+              <a href="/html/cart.html"
+                ><button class="add-to-cart">
+                  <i class="fas fa-shopping-cart"></i> أضف إلى السلة
+                </button></a
+              >
+              <a href="html/fav.html"
+                ><button class="add-to-fav">
+                  <i class="fa-regular fa-heart"></i> أضف إلى المفضلة
+                </button></a
+              >
+              <a href="html/details.html">
+                <button class="add-to-fav">
+                  <i class="fas fa-list"></i> تفاصيل المنتج
+                </button></a
+              >
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Derss NO 2</h3>
+            <div class="stars" data-rating="0">
+              <span data-value="1">★</span>
+              <span data-value="2">★</span>
+              <span data-value="3">★</span>
+              <span data-value="4">★</span>
+              <span data-value="5">★</span>
+            </div>
+            <p class="price">174.000 د.ك</p>
+          </div>
+        </div>
+        <!-- ======================== -->
+        <div class="product-card">
+          <div class="image-container">
+            <a href="details.html">
+              <img src="imge/image-3.png" alt="منتج" />
+            </a>
+            <div class="buttons-overlay">
+              <a href="/html/cart.html"
+                ><button class="add-to-cart">
+                  <i class="fas fa-shopping-cart"></i> أضف إلى السلة
+                </button></a
+              >
+              <a href="html/fav.html"
+                ><button class="add-to-fav">
+                  <i class="fa-regular fa-heart"></i> أضف إلى المفضلة
+                </button></a
+              >
+              <a href="html/details.html">
+                <button class="add-to-fav">
+                  <i class="fas fa-list"></i> تفاصيل المنتج
+                </button></a
+              >
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>BA-17</h3>
+            <div class="stars" data-rating="0">
+              <span data-value="1">★</span>
+              <span data-value="2">★</span>
+              <span data-value="3">★</span>
+              <span data-value="4">★</span>
+              <span data-value="5">★</span>
+            </div>
+            <p class="price">174.000 د.ك</p>
+          </div>
+        </div>
+        <!-- ========================= -->
+        <div class="product-card">
+          <div class="image-container">
+            <a href="details.html">
+              <img src="imge/image-2.png" alt="منتج" />
+            </a>
+            <div class="buttons-overlay">
+              <a href="/html/cart.html"
+                ><button class="add-to-cart">
+                  <i class="fas fa-shopping-cart"></i> أضف إلى السلة
+                </button></a
+              >
+              <a href="html/fav.html"
+                ><button class="add-to-fav">
+                  <i class="fa-regular fa-heart"></i> أضف إلى المفضلة
+                </button></a
+              >
+              <a href="html/details.html">
+                <button class="add-to-fav">
+                  <i class="fas fa-list"></i> تفاصيل المنتج
+                </button></a
+              >
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>دراعة Yar-2</h3>
+            <div class="stars" data-rating="0">
+              <span data-value="1">★</span>
+              <span data-value="2">★</span>
+              <span data-value="3">★</span>
+              <span data-value="4">★</span>
+              <span data-value="5">★</span>
+            </div>
+            <p class="price">174.000 د.ك</p>
+          </div>
+        </div>
+        <!-- ========================== -->
+        <div class="product-card">
+          <div class="image-container">
+            <a href="details.html">
+              <img src="imge/image-1.png" alt="منتج" />
+            </a>
+            <div class="buttons-overlay">
+              <a href="/html/cart.html"
+                ><button class="add-to-cart">
+                  <i class="fas fa-shopping-cart"></i> أضف إلى السلة
+                </button></a
+              >
+              <a href="html/fav.html"
+                ><button class="add-to-fav">
+                  <i class="fa-regular fa-heart"></i> أضف إلى المفضلة
+                </button></a
+              >
+              <a href="html/details.html">
+                <button class="add-to-fav">
+                  <i class="fas fa-list"></i> تفاصيل المنتج
+                </button></a
+              >
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>دراعة Yar-3</h3>
+            <div class="stars" data-rating="0">
+              <span data-value="1">★</span>
+              <span data-value="2">★</span>
+              <span data-value="3">★</span>
+              <span data-value="4">★</span>
+              <span data-value="5">★</span>
+            </div>
+            <p class="price">174.000 د.ك</p>
+          </div>
+        </div>
+        <!-- ========================== -->
+        <div class="product-card">
+          <div class="image-container">
+            <a href="details.html">
+              <img src="imge/image-15.png" alt="منتج" />
+            </a>
+            <div class="buttons-overlay">
+              <a href="/html/cart.html"
+                ><button class="add-to-cart">
+                  <i class="fas fa-shopping-cart"></i> أضف إلى السلة
+                </button></a
+              >
+              <a href="html/fav.html"
+                ><button class="add-to-fav">
+                  <i class="fa-regular fa-heart"></i> أضف إلى المفضلة
+                </button></a
+              >
+              <a href="html/details.html">
+                <button class="add-to-fav">
+                  <i class="fas fa-list"></i> تفاصيل المنتج
+                </button></a
+              >
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>دراعة Yar-4</h3>
+            <div class="stars" data-rating="0">
+              <span data-value="1">★</span>
+              <span data-value="2">★</span>
+              <span data-value="3">★</span>
+              <span data-value="4">★</span>
+              <span data-value="5">★</span>
+            </div>
+            <p class="price">174.000 د.ك</p>
+          </div>
+        </div>
+        <!-- ========================== -->
+        <div class="product-card">
+          <div class="image-container">
+            <a href="details.html">
+              <img src="imge/image-7.png" alt="منتج" />
+            </a>
+            <div class="buttons-overlay">
+              <a href="/html/cart.html"
+                ><button class="add-to-cart">
+                  <i class="fas fa-shopping-cart"></i> أضف إلى السلة
+                </button></a
+              >
+              <a href="html/fav.html"
+                ><button class="add-to-fav">
+                  <i class="fa-regular fa-heart"></i> أضف إلى المفضلة
+                </button></a
+              >
+              <a href="html/details.html">
+                <button class="add-to-fav">
+                  <i class="fas fa-list"></i> تفاصيل المنتج
+                </button></a
+              >
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Derss NO 2</h3>
+            <div class="stars" data-rating="0">
+              <span data-value="1">★</span>
+              <span data-value="2">★</span>
+              <span data-value="3">★</span>
+              <span data-value="4">★</span>
+              <span data-value="5">★</span>
+            </div>
+            <p class="price">174.000 د.ك</p>
+          </div>
+        </div>
+        <!-- ========================== -->
+        <div class="product-card">
+          <div class="image-container">
+            <a href="details.html">
+              <img src="imge/image-6.png" alt="منتج" />
+            </a>
+            <div class="buttons-overlay">
+              <a href="/html/cart.html"
+                ><button class="add-to-cart">
+                  <i class="fas fa-shopping-cart"></i> أضف إلى السلة
+                </button></a
+              >
+              <a href="html/fav.html"
+                ><button class="add-to-fav">
+                  <i class="fa-regular fa-heart"></i> أضف إلى المفضلة
+                </button></a
+              >
+              <a href="html/details.html">
+                <button class="add-to-fav">
+                  <i class="fas fa-list"></i> تفاصيل المنتج
+                </button></a
+              >
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Derss NO 3</h3>
+            <div class="stars" data-rating="0">
+              <span data-value="1">★</span>
+              <span data-value="2">★</span>
+              <span data-value="3">★</span>
+              <span data-value="4">★</span>
+              <span data-value="5">★</span>
+            </div>
+            <p class="price">174.000 د.ك</p>
+          </div>
+        </div>
+        <!-- ========================== -->
+        <div class="product-card">
+          <div class="image-container">
+            <a href="details.html">
+              <img src="imge/image-5.png" alt="منتج" />
+            </a>
+            <div class="buttons-overlay">
+              <a href="/html/cart.html"
+                ><button class="add-to-cart">
+                  <i class="fas fa-shopping-cart"></i> أضف إلى السلة
+                </button></a
+              >
+              <a href="html/fav.html"
+                ><button class="add-to-fav">
+                  <i class="fa-regular fa-heart"></i> أضف إلى المفضلة
+                </button></a
+              >
+              <a href="html/details.html">
+                <button class="add-to-fav">
+                  <i class="fas fa-list"></i> تفاصيل المنتج
+                </button></a
+              >
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Derss NO 4</h3>
+            <div class="stars" data-rating="0">
+              <span data-value="1">★</span>
+              <span data-value="2">★</span>
+              <span data-value="3">★</span>
+              <span data-value="4">★</span>
+              <span data-value="5">★</span>
+            </div>
+            <p class="price">174.000 د.ك</p>
+          </div>
+        </div>
+        <!-- ========================== -->
+        <div class="product-card">
+          <div class="image-container">
+            <a href="details.html">
+              <img src="imge/image-4.png" alt="منتج" />
+            </a>
+            <div class="buttons-overlay">
+              <a href="/html/cart.html"
+                ><button class="add-to-cart">
+                  <i class="fas fa-shopping-cart"></i> أضف إلى السلة
+                </button></a
+              >
+              <a href="html/fav.html"
+                ><button class="add-to-fav">
+                  <i class="fa-regular fa-heart"></i> أضف إلى المفضلة
+                </button></a
+              >
+              <a href="html/details.html">
+                <button class="add-to-fav">
+                  <i class="fas fa-list"></i> تفاصيل المنتج
+                </button></a
+              >
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Derss NO 5</h3>
+            <div class="stars" data-rating="0">
+              <span data-value="1">★</span>
+              <span data-value="2">★</span>
+              <span data-value="3">★</span>
+              <span data-value="4">★</span>
+              <span data-value="5">★</span>
+            </div>
+            <p class="price">174.000 د.ك</p>
+          </div>
+        </div>
+        <!-- ========================== -->
+        <div class="product-card">
+          <div class="image-container">
+            <a href="details.html">
+              <img src="imge/image-11.png" alt="منتج" />
+            </a>
+            <div class="buttons-overlay">
+              <a href="/html/cart.html"
+                ><button class="add-to-cart">
+                  <i class="fas fa-shopping-cart"></i> أضف إلى السلة
+                </button></a
+              >
+              <a href="html/fav.html"
+                ><button class="add-to-fav">
+                  <i class="fa-regular fa-heart"></i> أضف إلى المفضلة
+                </button></a
+              >
+              <a href="html/details.html">
+                <button class="add-to-fav">
+                  <i class="fas fa-list"></i> تفاصيل المنتج
+                </button></a
+              >
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Derss NO 6</h3>
+            <div class="stars" data-rating="0">
+              <span data-value="1">★</span>
+              <span data-value="2">★</span>
+              <span data-value="3">★</span>
+              <span data-value="4">★</span>
+              <span data-value="5">★</span>
+            </div>
+            <p class="price">174.000 د.ك</p>
+          </div>
+        </div>
+        <!-- ========================== -->
+        <div class="product-card">
+          <div class="image-container">
+            <a href="details.html">
+              <img src="imge/image-10.png" alt="منتج" />
+            </a>
+            <div class="buttons-overlay">
+              <a href="/html/cart.html"
+                ><button class="add-to-cart">
+                  <i class="fas fa-shopping-cart"></i> أضف إلى السلة
+                </button></a
+              >
+              <a href="html/fav.html"
+                ><button class="add-to-fav">
+                  <i class="fa-regular fa-heart"></i> أضف إلى المفضلة
+                </button></a
+              >
+              <a href="html/details.html">
+                <button class="add-to-fav">
+                  <i class="fas fa-list"></i> تفاصيل المنتج
+                </button></a
+              >
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>مجموعة صيف 2024 جيمسبوت</h3>
+            <div class="stars" data-rating="0">
+              <span data-value="1">★</span>
+              <span data-value="2">★</span>
+              <span data-value="3">★</span>
+              <span data-value="4">★</span>
+              <span data-value="5">★</span>
+            </div>
+            <p class="price">174.000 د.ك</p>
+          </div>
+        </div>
+        <!-- ========================== -->
+        <div class="product-card">
+          <div class="image-container">
+            <a href="details.html">
+              <img src="imge/image-9.png" alt="منتج" />
+            </a>
+            <div class="buttons-overlay">
+              <a href="/html/cart.html"
+                ><button class="add-to-cart">
+                  <i class="fas fa-shopping-cart"></i> أضف إلى السلة
+                </button></a
+              >
+              <a href="html/fav.html"
+                ><button class="add-to-fav">
+                  <i class="fa-regular fa-heart"></i> أضف إلى المفضلة
+                </button></a
+              >
+              <a href="html/details.html">
+                <button class="add-to-fav">
+                  <i class="fas fa-list"></i> تفاصيل المنتج
+                </button></a
+              >
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Derss NO 7</h3>
+            <div class="stars" data-rating="0">
+              <span data-value="1">★</span>
+              <span data-value="2">★</span>
+              <span data-value="3">★</span>
+              <span data-value="4">★</span>
+              <span data-value="5">★</span>
+            </div>
+            <p class="price">174.000 د.ك</p>
+          </div>
+        </div>
+        <!-- ========================== -->
+        <div class="product-card">
+          <div class="image-container">
+            <a href="details.html">
+              <img src="imge/image-8.png" alt="منتج" />
+            </a>
+            <div class="buttons-overlay">
+              <a href="/html/cart.html"
+                ><button class="add-to-cart">
+                  <i class="fas fa-shopping-cart"></i> أضف إلى السلة
+                </button></a
+              >
+              <a href="html/fav.html"
+                ><button class="add-to-fav">
+                  <i class="fa-regular fa-heart"></i> أضف إلى المفضلة
+                </button></a
+              >
+              <a href="html/details.html">
+                <button class="add-to-fav">
+                  <i class="fas fa-list"></i> تفاصيل المنتج
+                </button></a
+              >
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Derss NO 8</h3>
+            <div class="stars" data-rating="0">
+              <span data-value="1">★</span>
+              <span data-value="2">★</span>
+              <span data-value="3">★</span>
+              <span data-value="4">★</span>
+              <span data-value="5">★</span>
+            </div>
+            <p class="price">174.000 د.ك</p>
+          </div>
+        </div>
+        <!-- ========================== -->
+        <div class="product-card">
+          <div class="image-container">
+            <a href="details.html">
+              <img src="imge/image-15.png" alt="منتج" />
+            </a>
+            <div class="buttons-overlay">
+              <a href="/html/cart.html"
+                ><button class="add-to-cart">
+                  <i class="fas fa-shopping-cart"></i> أضف إلى السلة
+                </button></a
+              >
+              <a href="html/fav.html"
+                ><button class="add-to-fav">
+                  <i class="fa-regular fa-heart"></i> أضف إلى المفضلة
+                </button></a
+              >
+
+              <a href="html/details.html">
+                <button class="add-to-fav">
+                  <i class="fas fa-list"></i> تفاصيل المنتج
+                </button></a
+              >
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Derss NO 9</h3>
+            <div class="stars" data-rating="0">
+              <span data-value="1">★</span>
+              <span data-value="2">★</span>
+              <span data-value="3">★</span>
+              <span data-value="4">★</span>
+              <span data-value="5">★</span>
+            </div>
+            <p class="price">174.000 د.ك</p>
+          </div>
+        </div>
+        <!-- ========================== -->
+        <div class="product-card">
+          <div class="image-container">
+            <a href="details.html">
+              <img src="imge/image-14.png" alt="منتج" />
+            </a>
+            <div class="buttons-overlay">
+              <a href="/html/cart.html"
+                ><button class="add-to-cart">
+                  <i class="fas fa-shopping-cart"></i> أضف إلى السلة
+                </button></a
+              >
+              <a href="html/fav.html"
+                ><button class="add-to-fav">
+                  <i class="fa-regular fa-heart"></i> أضف إلى المفضلة
+                </button></a
+              >
+              <a href="html/details.html">
+                <button class="add-to-fav">
+                  <i class="fas fa-list"></i> تفاصيل المنتج
+                </button></a
+              >
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Derss NO 10</h3>
+            <div class="stars" data-rating="0">
+              <span data-value="1">★</span>
+              <span data-value="2">★</span>
+              <span data-value="3">★</span>
+              <span data-value="4">★</span>
+              <span data-value="5">★</span>
+            </div>
+            <p class="price">174.000 د.ك</p>
+          </div>
+        </div>
+        <!-- ========================== -->
+        <div class="product-card">
+          <div class="image-container">
+            <a href="details.html">
+              <img src="imge/image-12.png" alt="منتج" />
+            </a>
+            <div class="buttons-overlay">
+              <a href="/html/cart.html"
+                ><button class="add-to-cart">
+                  <i class="fas fa-shopping-cart"></i> أضف إلى السلة
+                </button></a
+              >
+              <a href="html/fav.html"
+                ><button class="add-to-fav">
+                  <i class="fa-regular fa-heart"></i> أضف إلى المفضلة
+                </button></a
+              >
+              <a href="html/details.html">
+                <button class="add-to-fav">
+                  <i class="fas fa-list"></i> تفاصيل المنتج
+                </button></a
+              >
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>BA-30</h3>
+            <div class="stars" data-rating="0">
+              <span data-value="1">★</span>
+              <span data-value="2">★</span>
+              <span data-value="3">★</span>
+              <span data-value="4">★</span>
+              <span data-value="5">★</span>
+            </div>
+            <p class="price">174.000 د.ك</p>
+          </div>
+        </div>
+        <!-- ========================== -->
+        <div class="product-card">
+          <div class="image-container">
+            <a href="details.html">
+              <img src="imge/image-17.png" alt="منتج" />
+            </a>
+            <div class="buttons-overlay">
+              <a href="/html/cart.html"
+                ><button class="add-to-cart">
+                  <i class="fas fa-shopping-cart"></i> أضف إلى السلة
+                </button></a
+              >
+              <a href="html/fav.html"
+                ><button class="add-to-fav">
+                  <i class="fa-regular fa-heart"></i> أضف إلى المفضلة
+                </button></a
+              >
+              <a href="html/details.html">
+                <button class="add-to-fav">
+                  <i class="fas fa-list"></i> تفاصيل المنتج
+                </button></a
+              >
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Derss NO 2</h3>
+            <div class="stars" data-rating="0">
+              <span data-value="1">★</span>
+              <span data-value="2">★</span>
+              <span data-value="3">★</span>
+              <span data-value="4">★</span>
+              <span data-value="5">★</span>
+            </div>
+            <p class="price">174.000 د.ك</p>
+          </div>
+        </div>
+        <!-- ========================== -->
+        <div class="product-card">
+          <div class="image-container">
+            <a href="details.html">
+              <img src="imge/image-19.png" alt="منتج" />
+            </a>
+            <div class="buttons-overlay">
+              <a href="/html/cart.html"
+                ><button class="add-to-cart">
+                  <i class="fas fa-shopping-cart"></i> أضف إلى السلة
+                </button></a
+              >
+              <a href="html/fav.html"
+                ><button class="add-to-fav">
+                  <i class="fa-regular fa-heart"></i> أضف إلى المفضلة
+                </button></a
+              >
+              <a href="html/details.html">
+                <button class="add-to-fav">
+                  <i class="fas fa-list"></i> تفاصيل المنتج
+                </button></a
+              >
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>BA-31</h3>
+            <div class="stars" data-rating="0">
+              <span data-value="1">★</span>
+              <span data-value="2">★</span>
+              <span data-value="3">★</span>
+              <span data-value="4">★</span>
+              <span data-value="5">★</span>
+            </div>
+            <p class="price">174.000 د.ك</p>
+          </div>
+        </div>
+        <!-- ========================== -->
+        <div class="product-card">
+          <div class="image-container">
+            <a href="details.html">
+              <img src="imge/image-18.png" alt="منتج" />
+            </a>
+            <div class="buttons-overlay">
+              <a href="/html/cart.html"
+                ><button class="add-to-cart">
+                  <i class="fas fa-shopping-cart"></i> أضف إلى السلة
+                </button></a
+              >
+              <a href="html/fav.html"
+                ><button class="add-to-fav">
+                  <i class="fa-regular fa-heart"></i> أضف إلى المفضلة
+                </button></a
+              >
+              <a href="html/details.html">
+                <button class="add-to-fav">
+                  <i class="fas fa-list"></i> تفاصيل المنتج
+                </button></a
+              >
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>مجموعة الخريف مع سارا Bk-13</h3>
+            <div class="stars" data-rating="0">
+              <span data-value="1">★</span>
+              <span data-value="2">★</span>
+              <span data-value="3">★</span>
+              <span data-value="4">★</span>
+              <span data-value="5">★</span>
+            </div>
+            <p class="price">174.000 د.ك</p>
+          </div>
+        </div>
+        <!-- ========================== -->
+        <div class="product-card">
+          <div class="image-container">
+            <a href="details.html">
+              <img src="imge/image-17.png" alt="منتج" />
+            </a>
+            <div class="buttons-overlay">
+              <a href="/html/cart.html"
+                ><button class="add-to-cart">
+                  <i class="fas fa-shopping-cart"></i> أضف إلى السلة
+                </button></a
+              >
+              <a href="html/fav.html"
+                ><button class="add-to-fav">
+                  <i class="fa-regular fa-heart"></i> أضف إلى المفضلة
+                </button></a
+              >
+              <a href="html/details.html">
+                <button class="add-to-fav">
+                  <i class="fas fa-list"></i> تفاصيل المنتج
+                </button></a
+              >
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>مجموعة الخريف مع سارا Dress NO- 02</h3>
+            <div class="stars" data-rating="0">
+              <span data-value="1">★</span>
+              <span data-value="2">★</span>
+              <span data-value="3">★</span>
+              <span data-value="4">★</span>
+              <span data-value="5">★</span>
+            </div>
+            <p class="price">174.000 د.ك</p>
+          </div>
+        </div>
+        <!-- ========================== -->
+        <div class="product-card">
+          <div class="image-container">
+            <a href="details.html">
+              <img src="imge/image-16.png" alt="منتج" />
+            </a>
+            <div class="buttons-overlay">
+              <a href="/html/cart.html"
+                ><button class="add-to-cart">
+                  <i class="fas fa-shopping-cart"></i> أضف إلى السلة
+                </button></a
+              >
+              <a href="html/fav.html"
+                ><button class="add-to-fav">
+                  <i class="fa-regular fa-heart"></i> أضف إلى المفضلة
+                </button></a
+              >
+              <a href="html/details.html">
+                <button class="add-to-fav">
+                  <i class="fas fa-list"></i> تفاصيل المنتج
+                </button></a
+              >
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>مجموعة الخريف مع سارا Bk-10</h3>
+            <div class="stars" data-rating="0">
+              <span data-value="1">★</span>
+              <span data-value="2">★</span>
+              <span data-value="3">★</span>
+              <span data-value="4">★</span>
+              <span data-value="5">★</span>
+            </div>
+            <p class="price">174.000 د.ك</p>
+          </div>
+        </div>
+        <!-- ========================== -->
+        <div class="product-card">
+          <div class="image-container">
+            <a href="details.html">
+              <img src="imge/image-23.png" alt="منتج" />
+            </a>
+            <div class="buttons-overlay">
+              <a href="/html/cart.html"
+                ><button class="add-to-cart">
+                  <i class="fas fa-shopping-cart"></i> أضف إلى السلة
+                </button></a
+              >
+              <a href="html/fav.html"
+                ><button class="add-to-fav">
+                  <i class="fa-regular fa-heart"></i> أضف إلى المفضلة
+                </button></a
+              >
+              <a href="html/details.html">
+                <button class="add-to-fav">
+                  <i class="fas fa-list"></i> تفاصيل المنتج
+                </button></a
+              >
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>مجموعة الخريف مع سارا Dress NO- 04</h3>
+            <div class="stars" data-rating="0">
+              <span data-value="1">★</span>
+              <span data-value="2">★</span>
+              <span data-value="3">★</span>
+              <span data-value="4">★</span>
+              <span data-value="5">★</span>
+            </div>
+            <p class="price">174.000 د.ك</p>
+          </div>
+        </div>
+        <!-- ========================== -->
+        <div class="product-card">
+          <div class="image-container">
+            <a href="details.html">
+              <img src="imge/image-22.png" alt="منتج" />
+            </a>
+            <div class="buttons-overlay">
+              <a href="/html/cart.html"
+                ><button class="add-to-cart">
+                  <i class="fas fa-shopping-cart"></i> أضف إلى السلة
+                </button></a
+              >
+              <a href="html/fav.html"
+                ><button class="add-to-fav">
+                  <i class="fa-regular fa-heart"></i> أضف إلى المفضلة
+                </button></a
+              >
+              <a href="html/details.html">
+                <button class="add-to-fav">
+                  <i class="fas fa-list"></i> تفاصيل المنتج
+                </button></a
+              >
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>مجموعة الخريف مع سارا Dress NO- 05</h3>
+            <div class="stars" data-rating="0">
+              <span data-value="1">★</span>
+              <span data-value="2">★</span>
+              <span data-value="3">★</span>
+              <span data-value="4">★</span>
+              <span data-value="5">★</span>
+            </div>
+            <p class="price">174.000 د.ك</p>
+          </div>
+        </div>
+        <!-- ========================== -->
+        <div class="product-card">
+          <div class="image-container">
+            <a href="details.html">
+              <img src="imge/image-21.png" alt="منتج" />
+            </a>
+            <div class="buttons-overlay">
+              <a href="/html/cart.html"
+                ><button class="add-to-cart">
+                  <i class="fas fa-shopping-cart"></i> أضف إلى السلة
+                </button></a
+              >
+              <a href="html/fav.html"
+                ><button class="add-to-fav">
+                  <i class="fa-regular fa-heart"></i> أضف إلى المفضلة
+                </button></a
+              >
+              <a href="html/details.html">
+                <button class="add-to-fav">
+                  <i class="fas fa-list"></i> تفاصيل المنتج
+                </button></a
+              >
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>مجموعة الخريف مع سارا Dress NO- 06</h3>
+            <div class="stars" data-rating="0">
+              <span data-value="1">★</span>
+              <span data-value="2">★</span>
+              <span data-value="3">★</span>
+              <span data-value="4">★</span>
+              <span data-value="5">★</span>
+            </div>
+            <p class="price">174.000 د.ك</p>
+          </div>
+        </div>
+        <!-- ========================== -->
+      </div>
+    </div>
+    <br />
+    <!-- end section2 -->
+    <div class="more">
+      <a href="html/product.html">
+        <button class="btn">
+          المزيد من المنتجات &nbsp;<i class="fa-solid fa-chevron-left"></i>
+        </button>
+      </a>
+    </div>
+    <br /><br /><br /><br />
+
+    <!-- start section3 -->
+    <div class="section">
+      <h2 style="font-size: 2.5rem; color: #412d25">المنتجات الجديدة</h2>
+      <br /><br />
+      <div class="image-grid">
+        <img src="imge/image-23.png" alt="صورة 1" />
+        <img src="imge/image-22.png" alt="صورة 2" />
+        <img src="imge/image-21.png" alt="صورة 3" />
+        <img src="imge/image-20.png" alt="صورة 4" />
+      </div>
+    </div>
+    <br /><br /><br /><br />
+    <!-- end section3 -->
+
+    <!-- اراء العملاء  -->
+
+    <div class="reviews-section">
+      <h2 style="color: #412d25">آراء عملائنا</h2>
+      <p>
+        استكشفي تشكيلتنا الفاخرة التي تناسب كل المناسبات مع آراء عملائنا
+        الرائعين.
+      </p>
+      <br /><br />
+      <div class="reviews-grid">
+        <!-- كرت عميل -->
+        <div class="review-card">
+          <img src="imge/Ellipse 1 (3).png" alt="العميل" class="user-img" />
+          <h3>أميرة خالد</h3>
+          <div class="stars">★★★★★</div>
+          <p class="review-text">
+            منتجات رائعة وخدمة ممتازة، أنصح الجميع بالتجربة!
+          </p>
+          <p style="font-size: 5rem; color: black; font-weight: bold">’’</p>
+        </div>
+
+        <!-- كرر نفس الكرت 3 مرات -->
+        <div class="review-card">
+          <img src="imge/Ellipse 1 (1).png" alt="العميل" class="user-img" />
+          <h3>سارة أحمد</h3>
+          <div class="stars">★★★★★</div>
+          <p class="review-text">الخامة جميلة جدًا والتوصيل سريع، شكراً لكم!</p>
+          <p style="font-size: 5rem; color: black; font-weight: bold">’’</p>
+        </div>
+
+        <div class="review-card">
+          <img src="imge/Ellipse 1.png" alt="العميل" class="user-img" />
+          <h3>محمد صقر</h3>
+          <div class="stars">★★★★★</div>
+          <p class="review-text">تصاميم مميزة وخدمة عملاء راقية.</p>
+          <p style="font-size: 5rem; color: black; font-weight: bold">’’</p>
+        </div>
+
+        <div class="review-card">
+          <img src="imge/Ellipse 1 (2).png" alt="العميل" class="user-img" />
+          <h3>محمد صقر</h3>
+          <div class="stars">★★★★★</div>
+          <p class="review-text">أجمل تجربة تسوق مرّت عليّ، شكرًا لكم!</p>
+          <p style="font-size: 5rem; color: black; font-weight: bold">’’</p>
+        </div>
+      </div>
+    </div>
+    <br />
+
+    <div class="more">
+      <button class="btn" style="margin-bottom: 50px">
+        تسوق الان &nbsp;<i class="fa-solid fa-chevron-left"></i>
+      </button>
+    </div>
+
+    <!-- الاسئلة الشائعة -->
+    <div class="products-section" >
+      <h2>الأسئلة الشائعة</h2>
+      <p>
+        إليك بعض الأسئلة الشائعة والإجابات لمساعدتك في معرفة المزيد عن خدماتي
+        وعملية العمل.<br />
+        إذا كان لديك أي استفسارات أخرى، لا تتردد في التواصل!
+      </p>
+      <br /><br />
+
+      <div class="faq-item">
+        <p style="color: white; ">
+          ماهى سياسات الاسترجاع والاستبدال؟
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <p style="color: white; ">
+          كيف يمكننى معرفة مقاسى المناسب؟
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <p style="color: white; ">ماهى طرق الدفع المتاحة؟</p>
+      </div>
+
+      <div class="faq-item">
+        <p style="color: white; ">كم يسنغرق توصيل الطلب؟</p>
+      </div>
+
+      <div class="faq-item">
+        <p style="color: white; ">
+          هل تتوفر لديكم تصاميم حصرية أو عروض خاصة؟
+        </p>
+      </div>
+    </div>
+    <br /><br /><br /><br />
+
+    <!--  ماقبل ال footer  -->
+    <div class="container">
+      <div class="floating-div">
+        <label for="myInput">النشرة البريدية</label>
+        <div class="input-btn-wrapper">
+          <input type="text" id="myInput" placeholder="اكتب هنا..." />
+          <button type="button">ارسال</button>
+        </div>
+      </div>
+
+      <!-- الديف اللى تحت العائم -->
+      <div class="content-div">
+        <div class="contact-info" >
+          <!-- ====== -->
+          <div class="info-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <p style="font-weight:normal;">القاهرة - مصر</p>
+          </div>
+
+          <!-- ====== -->
+          <div class="info-item">
+            <i class="fa-solid fa-phone"></i>
+            <p style="font-weight:normal;">+20 123 456 789</p>
+          </div>
+          <!-- ==== -->
+          <div class="info-item">
+            <i class="fa-solid fa-envelope"></i>
+            <p style="font-weight:normal;">example@email.com</p>
+          </div>
+          <!-- ====== -->
+        </div>
+
+        <!-- أيقونات السوشيال -->
+        <div class="social-icons">
+          <a
+            href="https://www.facebook.com/share/16Zb42KkZC/"
+            class="social-circle whatsapp"
+            ><i class="fa-brands fa-whatsapp"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/mohamed_sakr73/profilecard/?igsh=MW5iZXZudjk4ZzE4dw=="
+            class="social-circle instagram"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a href="https://github.com/MohamedSaKr2" class="social-circle github"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+
+          <a href="https://wa.me/201229863101" class="social-circle facebook"
+            ><i class="fa-brands fa-facebook-f"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+    <!-- start footer -->
+    <footer>
+      <div class="footer-content">
+        <!-- القسم اليمين -->
+        <ul class="footer-nav">
+          <li><a href="index.html">الرئيسية</a></li>
+          <li><a href="html/store.html">متجر</a></li>
+          <li><a href="/html/call.html">اتصل بنا</a></li>
+          <li><a href="#"> سياسة الخصوصية</a></li>
+        </ul>
+
+        <!-- القسم الوسط -->
+        <div class="footer-logo">
+          <img src="imge/footer.png" alt="Logo" />
+        </div>
+
+        <!-- القسم اليسار -->
+        <div class="footer-copy">
+          <p>&copy; 2025 جميع الحقوق محفوظة - Sara merdas</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/index.js"></script>
+  </body>
+</html>

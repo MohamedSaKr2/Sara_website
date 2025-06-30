@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تسجيل الدخول</title>
+    <link rel="stylesheet" href="../css/login.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <a
+      href="https://wa.me/201229863101"
+      class="whatsapp-float"
+      target="_blank"
+      title="تواصل معنا على واتساب"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <div class="container">
+      <h1>تسجيل الدخول</h1>
+      <form class="form">
+        <label for="email">البريد الإلكتروني</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="password">كلمة المرور</label>
+        <input type="password" id="password" name="password" required />
+
+        <div class="options">
+          <div class="remember-me">
+            <input type="checkbox" id="remember" name="remember" />
+            <label for="remember">تذكرني؟</label>
+          </div>
+          <a href="#">نسيت كلمة المرور؟</a>
+        </div>
+
+        <button type="submit">تسجيل الدخول</button>
+        <p>ليس لديك حساب؟ &nbsp;<a href="../html/sign.html">إنشاء حساب </a></p>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Almarai", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  direction: rtl;
+}
+
+.container {
+  /* background-color: #fff; */
+  padding: 30px 40px;
+  border-radius: 10px;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+  width: 100%;
+  max-width: 600px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #412d25;
+}
+
+.form input[type="email"],
+.form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form input[type="checkbox"] {
+  margin-left: 5px;
+}
+
+.form a {
+  display: block;
+  margin: 10px 0;
+  color: #815a4b;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.options a {
+  color: #815a4b;
+  text-decoration: none;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.options a:hover {
+  text-decoration: underline;
+}
+
+.form button {
+  width: 100%;
+  padding: 15px;
+  background-color: #a67865;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  margin-top: 15px;
+  cursor: pointer;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.form p {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.95em;
+}
+
+.form p a {
+  color: #815a4b;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+  }
+}
+
+/* ابقونة الواتس  */
+.whatsapp-float {
+  position: fixed;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  background-color: #a57d6e;
+  color: #fff;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .whatsapp-float {
+    top: 30px;
+    transform: none;
+  }
+}

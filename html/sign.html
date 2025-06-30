@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>انشاء حساب جديد </title>
+    <link rel="stylesheet" href="../css/sign.css">
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+
+
+      <a href="https://wa.me/201229863101"
+         class="whatsapp-float"
+         target="_blank"
+         title="تواصل معنا على واتساب">
+
+          <i class="fab fa-whatsapp"></i>
+      </a>
+
+
+
+     <div class="container">
+    <h1>إنشاء حساب</h1>
+    <form class="form">
+      <label>النوع</label>
+      <div class="gender">
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">ذكر</label>
+
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">أنثى</label>
+      </div>
+
+      <label for="firstname">الاسم الأول</label>
+      <input type="text" id="firstname" name="firstname" required>
+
+      <label for="lastname">اسم العائلة</label>
+      <input type="text" id="lastname" name="lastname" required>
+
+      <label>تاريخ الميلاد</label>
+      <div class="birth-date">
+        <select name="day" required>
+          <option value="">اليوم</option>
+          <!-- أيام من 1 إلى 31 -->
+          <script>
+            for (let i = 1; i <= 31; i++) {
+              document.write(`<option value="${i}">${i}</option>`);
+            }
+          </script>
+        </select>
+
+        <select name="month" required>
+          <option value="">شهر</option>
+          <option value="1">يناير</option>
+          <option value="2">فبراير</option>
+          <option value="3">مارس</option>
+          <option value="4">أبريل</option>
+          <option value="5">مايو</option>
+          <option value="6">يونيو</option>
+          <option value="7">يوليو</option>
+          <option value="8">أغسطس</option>
+          <option value="9">سبتمبر</option>
+          <option value="10">أكتوبر</option>
+          <option value="11">نوفمبر</option>
+          <option value="12">ديسمبر</option>
+        </select>
+
+        <select name="year" required>
+          <option value="">سنة</option>
+          <script>
+            const yearNow = new Date().getFullYear();
+            for (let i = yearNow; i >= 1900; i--) {
+              document.write(`<option value="${i}">${i}</option>`);
+            }
+          </script>
+        </select>
+      </div>
+
+      <label for="email">البريد الإلكتروني</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="phone">رقم الهاتف</label>
+      <input type="tel" id="phone" name="phone">
+
+      <div class="checkbox-container">
+        <input type="checkbox" id="newsletter" name="newsletter">
+        <label for="newsletter">الاشتراك في النشرة البريدية</label>
+      </div>
+
+      <label for="password">كلمة المرور</label>
+      <input type="password" id="password" name="password" required>
+
+      <label for="confirm-password">تأكيد كلمة المرور</label>
+      <input type="password" id="confirm-password" name="confirm-password" required>
+
+      <button type="submit">إنشاء حساب</button>
+      <p>لديك حساب بالفعل؟ <a href="../html/login.html">تسجيل الدخول</a></p>
+    </form>
+  </div>
+
+
+    </div>
+    
+</body>
+</html>

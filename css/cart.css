@@ -1,0 +1,953 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Almarai", sans-serif;
+}
+
+/* اى تاج a هيتشال من تحته الخط وياخد لون الديف الاب  */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 1000;
+  direction: rtl;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  margin-left: 150px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #666;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+}
+
+.icons i {
+  font-size: 15px;
+  margin-left: 20px;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.icons i:hover {
+  color: #666;
+}
+
+.nav-links li a i {
+  font-size: 12px;
+  margin-right: 5px;
+}
+
+/* زر الهامبرجر */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+  transition: transform 0.3s;
+}
+
+/* Media Queries for Navbar (common to all CSS files, consider externalizing) */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 20px;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: #fff;
+    padding: 80px 30px 30px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease-in-out;
+    z-index: 999;
+    margin-left: 0;
+    gap: 25px;
+  }
+
+  .nav-links.show {
+    right: 0;
+    width: 50%;
+  }
+
+  .hamburger {
+    display: block;
+    z-index: 1000;
+  }
+
+  .hamburger.active {
+    transform: rotate(180deg);
+  }
+
+  .hamburger.active i.fa-bars {
+    display: none;
+  }
+
+  .hamburger.active i.fa-times {
+    display: block;
+  }
+
+  .hamburger i.fa-times {
+    display: none;
+  }
+
+  .icons {
+    display: none; /* Hide icons in navbar on small screens */
+  }
+
+  .mobile-icons {
+    display: none;
+  }
+
+  /* Overlay when menu is open */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+  }
+
+  .overlay.show {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* WhatsApp Floating Icon (common to all CSS files, consider externalizing) */
+.whatsapp-float {
+  position: fixed;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  background-color: #a57d6e;
+  color: #fff;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .whatsapp-float {
+    top: 100px;
+    transform: none;
+  }
+}
+
+/* Start Cart */
+.cart-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 40px;
+  direction: rtl;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: auto;
+}
+
+/* Responsive areas */
+.cart-content {
+  flex: 1 1 60%;
+  min-width: 300px; /* Adjusted min-width for better responsiveness */
+}
+
+.cart-summary {
+  flex: 0 0 250px;
+}
+
+.cart-content {
+  padding: 40px;
+  direction: rtl;
+  
+}
+
+/* Cart title */
+.cart-title {
+  text-align: center;
+  font-size: 1.75rem; /* Using rem */
+  margin-bottom: 30px;
+}
+
+/* Cart table */
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Columns */
+.cart-header,
+.cart-row {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr 1fr 1.2fr 0.6fr;
+  gap: 20px;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-header {
+  background-color: #f7f7f7;
+  font-weight: bold;
+}
+
+.cart-row {
+  background-color: #fff;
+}
+
+/* Individual columns */
+.col {
+  text-align: center;
+}
+
+.col-product {
+  text-align: right;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Product image */
+.product-info img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* Quantity */
+.quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.quantity button {
+  width: 30px;
+  height: 30px;
+  background: #ddd;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.quantity input {
+  width: 40px;
+  text-align: center;
+  border: none;
+  background: transparent;
+  font-size: 0.9375rem; /* Using rem */
+}
+
+/* Remove button */
+.remove {
+  background-color: #614438;
+  color: white;
+  border: none;
+  font-size: 1.25rem; /* Using rem */
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: 0.3s;
+}
+
+/* Cart summary */
+.cart-summary {
+  flex: 0 0 250px;
+  padding: 25px 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 0.9375rem; /* Using rem */
+  text-align: right;
+  margin-top: 50px;
+}
+
+.cart-summary h3 {
+  font-size: 1.25rem; /* Using rem */
+  margin-bottom: 10px;
+  color: #412d25;
+}
+
+.subtotal {
+  margin-bottom: 0;
+}
+
+.shipping-options label {
+  display: block;
+  margin: 5px 0;
+}
+
+.shipping-address {
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 0.875rem; /* Using rem */
+}
+
+.shipping-address a {
+  color: #b07a5b;
+  font-size: 0.8125rem; /* Using rem */
+  text-decoration: underline;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.total {
+  font-weight: bold;
+  font-size: 1rem; /* Using rem */
+}
+
+.checkout-btn {
+  background-color: #a67865;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.9375rem; /* Using rem */
+  cursor: pointer;
+  transition: 0.3s ease;
+  width: 100%;
+}
+
+@media (max-width: 992px) {
+  .cart-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .cart-content {
+    min-width: 100%;
+    padding: 20px;
+  }
+
+  .cart-summary {
+    flex: 1 1 100%;
+    width: 100%;
+    margin-top: 30px;
+    padding: 20px;
+  }
+
+  .cart-header,
+  .cart-row {
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr 0.6fr;
+    gap: 10px;
+    font-size: 0.875rem; /* Using rem */
+  }
+
+  .product-info img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .quantity button {
+    width: 25px;
+    height: 25px;
+  }
+
+  .quantity input {
+    width: 35px;
+    font-size: 0.875rem; /* Using rem */
+  }
+
+  .remove {
+    width: 20px;
+    height: 20px;
+    font-size: 1rem; /* Using rem */
+  }
+}
+
+@media (max-width: 576px) {
+  .cart-header {
+    display: none;
+  }
+
+  .cart-row {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 15px;
+  }
+
+  .cart-row .col {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.25rem; /* Using rem */
+  }
+
+  .col-product {
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .col-product img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .quantity {
+    justify-content: flex-start;
+  }
+
+  .remove {
+    width: 26px;
+    height: 26px;
+    font-size: 1rem; /* Using rem */
+  }
+
+  .cart-summary {
+    width: 100%;
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  .checkout-btn {
+    padding: 20px;
+    font-size: 0.875rem; /* Using rem */
+    width: 50%;
+    margin: 0 auto; /* Centering the button */
+    margin-top: 20px;
+  }
+}
+
+/* Reviews Section (common to all CSS files, consider externalizing) */
+.reviews-section {
+  text-align: center;
+  padding: 0px 20px;
+  width: 90%;
+  margin: auto;
+}
+
+.reviews-section h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.reviews-section p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  justify-items: center;
+}
+
+.review-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 250px;
+}
+
+.user-img {
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.review-card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.stars {
+  color: #f5b50a;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.review-text {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* Responsive Reviews */
+@media (max-width: 1024px) {
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn {
+  background-color: #9c6b5b;
+  color: #fff;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin: auto;
+  font-weight: bold;
+}
+
+/* Pre-footer section (common to all CSS files, consider externalizing) */
+.container {
+  position: relative;
+  width: 100%;
+  margin: 0px auto;
+ 
+}
+
+/* Floating div */
+.floating-div {
+  position: absolute;
+  top: -60px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  max-width: 1000px; /* Using max-width instead of fixed width */
+  min-height: 100px; /* Using min-height instead of fixed height */
+  background-color: #614438;
+  border-radius: 10px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  direction: rtl;
+}
+
+.floating-div label {
+  margin-left: auto;
+  margin-right: 10%;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.input-btn-wrapper {
+  position: relative;
+  flex: 1;
+}
+
+/* Input */
+.input-btn-wrapper input {
+  width: 70%;
+  min-height: 42px; /* Using min-height */
+  padding: 8px 15px 8px 80px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  outline: none;
+  box-sizing: border-box;
+  margin-right: 10%;
+}
+
+/* Button inside input */
+.input-btn-wrapper button {
+  position: absolute;
+  top: 50%;
+  left: 0; /* Adjusted to left 0 */
+  min-height: 100%; /* Using min-height */
+  width: 80px; /* Fixed width for button */
+  transform: translateY(-50%);
+  background-color: #a67865;
+  border: none;
+  color: #fff;
+  padding: 7px 15px;
+  border-radius: 6px 0px 0px 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+/* Second div below */
+.content-div {
+  width: 100%;
+  padding: 60px 20px 20px 20px;
+  min-height: 400px; /* Using min-height instead of fixed height */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .floating-div {
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+    padding: 20px 15px;
+    gap: 10px;
+  }
+
+  .floating-div label {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  .input-btn-wrapper {
+    width: 100%;
+  }
+
+  .input-btn-wrapper input {
+    width: 100%;
+    margin: 0;
+    padding-left: 90px;
+  }
+
+  .input-btn-wrapper button {
+    left: 0px;
+    width: 80px;
+    height: 42px;
+  }
+
+  .content-div {
+    padding-top: 100px;
+    min-height: 500px; /* Using min-height instead of fixed height */
+  }
+}
+
+/* Contact info styling (common to all CSS files, consider externalizing) */
+.content-div {
+  background-color: #b48d7e;
+  width: 100%;
+  padding: 60px 20px 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 1.1rem;
+  color: #fff;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Contact info */
+.contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  margin-top: 100px;
+}
+
+.info-item {
+  text-align: center;
+  max-width: 200px;
+  font-weight: bold;
+}
+
+.info-item i {
+  font-size: 30px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.info-item p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+/* Social icons (common to all CSS files, consider externalizing) */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.social-circle {
+  width: 40px;
+  height: 40px;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-circle:hover.facebook {
+  color: #1877f2;
+}
+
+.social-circle:hover.instagram {
+  color: #e1306c;
+}
+
+.social-circle:hover.github {
+  color: #333;
+}
+.social-circle:hover.whatsapp {
+  color: #328f29;
+}
+
+/* Footer (common to all CSS files, consider externalizing) */
+footer {
+  width: 100%;
+  background-color: #614438;
+  min-height: 70px; /* Using min-height instead of fixed height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  direction: rtl;
+}
+
+.footer-content {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+/* Right side */
+.footer-nav {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-nav li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.footer-nav li a:hover {
+  text-decoration: underline;
+}
+
+/* Middle */
+.footer-logo img {
+  height: 15px;
+  object-fit: contain;
+}
+
+/* Left side */
+.footer-copy p {
+  margin: 0;
+  font-size: 0.8rem;
+  text-align: left;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+  footer {
+    min-height: 90px; /* Using min-height instead of fixed height */
+  }
+  .footer-content {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  .footer-nav {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .footer-copy {
+    font-size: 0.75rem;
+  }
+
+  .footer-logo img {
+    height: 10px;
+  }
+}
+
+
+/* تنسيق السايدبار الجديد */
+.mobile-sidebar {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 75%;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: right 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-sidebar.show {
+  right: 0;
+}
+
+.sidebar-header {
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  position: relative;
+}
+
+.close-sidebar {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+}
+
+.sidebar-search {
+  position: relative;
+  margin-top: 30px;
+}
+
+.sidebar-search input {
+  width: 100%;
+  padding: 12px 15px 12px 40px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  direction: rtl;
+}
+
+.sidebar-search i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #777;
+}
+
+.sidebar-links {
+  list-style: none;
+  padding: 20px;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.sidebar-links li a {
+  display: flex;
+  align-items: center;
+  padding: 15px 10px;
+  color: #333;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+.sidebar-links li a:hover {
+  background: #f5f5f5;
+  color: #a67865;
+}
+
+.sidebar-links li a i {
+  margin-left: 10px;
+  font-size: 18px;
+  width: 25px;
+}
+
+.sidebar-footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  border-top: 1px solid #eee;
+}
+
+.sidebar-footer a {
+  color: #333;
+  font-size: 20px;
+  transition: all 0.3s;
+}
+
+.sidebar-footer a:hover {
+  color: #a67865;
+  transform: scale(1.1);
+}
+/* ايقونات الديف اللى فى الفوتر  */
+@media (max-width: 768px) {
+  .contact-info {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .info-item i {
+    font-size: 24px;
+  }
+
+  .info-item p {
+    font-size: 0.9rem;
+  }
+}
